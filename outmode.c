@@ -251,6 +251,7 @@ void txt2bas(const char *infile, basic_t force, int t64mode)
 			}
 		}
 		else {
+
 			/* If we get here, we have reached EOF */
 			morefiles = FALSE;
 		}

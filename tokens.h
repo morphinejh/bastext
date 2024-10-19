@@ -2,6 +2,7 @@
 
 /* C64 BASIC 2.0 */
 extern const char *c64tokens[];
+extern const char *x16tokens[];
 
 /* C64 Graphics52 BASIC extension (Software Unlimited) */
 extern const char *graphics52tokens[];

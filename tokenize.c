@@ -200,6 +200,31 @@ int tokenize(const char *input_p, char *output_p, int *length_p, basic_t mode)
 				} /* if */
 			} /* for */
 
+			/* X16 BASIC  (r48)*/
+			if (!match && (X16 == mode)) {
+				for (i = 0; i <= 78 && !match; i ++) {
+					tokenlen = strlen(x16tokens[i]);	/* as above */
+					if (tokenlen && inputleft >= tokenlen &&
+					    0 == strncasecmp(input_p, x16tokens[i], tokenlen)) {
+						/* token match found */
+						match = TRUE;
+						(*output_p ++) = 0xCE;			/* token escape */
+						if(i<65){
+							(*output_p ++) = (i+0x80);	/* write token */
+							/*DEBUG/printf("In X16 Token1 Found--%s{%02x, %02x}\n",x16tokens[i],*(output_p-2)&0xFF,*(output_p-1)&0xFF);//*/
+						}
+						else{
+							(*output_p ++) = (i+0x8F);	/* write token */
+							/*DEBUG/printf("In X16 Token2 Found--%s{%d - %02x, %02x}\n",x16tokens[i],i,*(output_p-2)&0xFF,*(output_p-1)&0xFF);//*/
+						}
+						
+						input_p += tokenlen;		/* skip token */
+						inputleft -= tokenlen;
+					} /* if */
+				} /* for */
+			} /* if */
+			
+			
 			/* C128 BASIC 7.0/7.1 */
 			if (!match && (Basic7 == mode || Basic71 == mode)) {
 				for (i = 2; i <= ((mode == Basic7) ? 38 : 55) && !match;

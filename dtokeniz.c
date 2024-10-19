@@ -90,7 +90,7 @@ int detokenize(const char *input_p, char *output_p, basic_t mode, int strict)
 				 *    OR the character is space
 				 *    OR the escape code is not a single character
 				 */
-				if (*ch_p == ch_p[1] &&
+				if (*ch_p == ch_p[1] && /*remove */ 0 &&
 				    ((isspecial || 32 == *ch_p) ||
 				     *ch_p == ch_p[2]) &&
 				    (!strict || 32 == *ch_p || strlen(escape_p) > 1)) {
@@ -132,6 +132,21 @@ int detokenize(const char *input_p, char *output_p, basic_t mode, int strict)
 					ch_p ++;
 					output_p += sprintf(output_p, "%s",
 					                    c128CEtokens[*ch_p]);
+				}
+				//*****************************************************//
+				else if (*ch_p == 0xCE && 
+							(*(ch_p + 1) >= 80 && *(ch_p + 1) <= 0xDD) &&
+							(X16 == mode)) {
+					//DEBUG//output_p += sprintf(output_p,"--{%x, %x}",*(ch_p),*(ch_p + 1));
+					/* X16 CE prefix */
+					ch_p ++;
+					if( *ch_p < 0xD0){
+						output_p += sprintf(output_p, "%s", x16tokens[(*ch_p)-0x80]);
+					} else {
+						output_p += sprintf(output_p, "%s", x16tokens[(*ch_p)-0x8F]);
+					}
+					
+				//*****************************************************//
 				} /* else */
 				else if (*ch_p == 0xFE && *(ch_p + 1) >= 2 &&
 				         ((*(ch_p + 1) <= 0x26 && Basic7 == mode) ||

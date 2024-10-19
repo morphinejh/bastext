@@ -5,6 +5,97 @@
 
 #include "tokens.h"
 
+/* Commander X16 CE tokens (r48)
+ * offset: 80
+ */
+
+const char *x16tokens[]={
+	"MON",	//CE80
+	"DOS",	//CE81
+	"OLD",	//CE82
+	"GEOS", //CE83
+	"VPOKE",//CE84
+	"VLOAD",//CE85
+	"SCREEN", //CE86
+	"PSET", //CE87
+	"LINE", //CE88
+	"FRAME", //CE89
+	"RECT", //CE8A
+	"CHAR", //CE8B
+	"MOUSE", //CE8C
+	"COLOR", //CE8D
+	"TEST", //CE8E
+	"RESET", //CE8F
+	"CLS", //CE90
+	"CODEX", //CE91
+	"LOCATE", //CE92
+	"BOOT", //CE93
+	"KEYMAP", //CE94
+	"BLOAD", //CE95
+	"BVLOAD", //CE96
+	"BVERIFY", //CE97
+	"BANK", //CE98
+	"FMINIT", //CE99
+	"FMNOTE", //CE9A
+	"FMDRUM", //CE9B
+	"FMINST", //CE9C
+	"FMVIB", //CE9D
+	"FMFREQ", //CE9E
+	"FMVOL", //CE9F
+	"FMPAN", //CEA0
+	"FMPLAY", //CEA1
+	"FMCHORD", //CEA2
+	"FMPOKE", //CEA3
+	"PSGINIT", //CEA4
+	"PSGNOTE", //CEA5
+	"PSGVOL", //CEA6
+	"PSGWAV", //CEA7
+	"PSGFREQ", //CEA8
+	"PSGPAN", //CEA9
+	"PSGPLAY", //CEAA
+	"PSGCHORD", //CEAB
+	"REBOOT", //CEAC
+	"POWEROFF", //CEAD
+	"I2CPOKE", //CEAE
+	"SLEEP", //CEAF
+	"BSAVE", //CEB0
+	"MENU", //CEB1
+	"REN", //CEB2
+	"LINPUT#", //CEB3
+	"LINPUT", //CEB4
+	"BINPUT#", //CEB5
+	"HELP", //CEB6
+	"BANNER", //CEB7
+	"EXEC", //CEB8
+	"TILE", //CEB9
+	"EDIT", //CEBA
+	"SPRITE", //CEBB
+	"SPRMEM", //CEBC
+	"MOVSPR", //CEBD
+	"BASLOAD", //CEBE
+	"OVAL", //CEBF
+	"RING", //CEC0
+	/*
+	 *
+	 *  $CEC1-CECF skipped in R48
+	 *
+	 */
+	"VPEEK", //CED0
+	"MX", //CED1
+	"MY", //CED2
+	"MB", //CED3
+	"JOY", //CED4
+	"HEX", //CED5
+	"BIN$", //CED6
+	"I2CPEEK", //CED7
+	"POINTER", //CED8
+	"STRPTR", //CED9
+	"RPT$", //CEDA
+	"MWHEEL", //CEDB
+	"TDATA", //CEDC
+	"TATTR" //CEDD
+};
+
 /* C64/VIC20 BASIC 2.0 (base for all versions)
  * offset: 128
  */

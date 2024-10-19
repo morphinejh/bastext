@@ -33,7 +33,8 @@ basic_t selectbasic(int adr)
 			break;
 
 		case 0x0801:
-			return TFC3;
+			//return TFC3;
+			return X16;
 			break;
 
 		case 0x1001:
