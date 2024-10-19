@@ -1,3 +1,8 @@
+# BasText for the Commander X16 (r48)
+Modified version of `bastext` that allows ascii conversion of Commander X16 basic files. Currently tested with revision R48.
+
+Due to multiple superset tokens of Commodore BASIC V2, the X16 is the default superset for basic programs with a start address at $0801 in this version.
+
 BasText - convert Commodore BASIC to text
 ==========================================
 Copyright 1997-2023 Peter Krefting.
@@ -35,6 +40,7 @@ this version of BasText:
 * SpeechBASIC 2.7 for Commodore 64
 * AtBasic for Commodore 64
 * Simon's BASIC for Commodore 64
+* Commander X16
 
 BasText tries to autodetect the Commodore BASIC dialect used in the file it
 is processing. At the moment, this is done by checking the starting address
@@ -199,6 +205,9 @@ HISTORY
 * v1.1 - 2023-11-21 -
   Fix incorrect keyboard mapping.
   Fix VICE compatibility.
+* v1.1a - 2024-10-19 -
+  Added Commander X16 tokens
+  breaks compatilbilty with other C64 V2.0 BASIC Supersets (i.e. TFC3)
 
 KNOWN BUGS
 -----------
@@ -215,10 +224,10 @@ the same program in both directions.
 BasText does not yet support the "bare" format that tok64 normally outputs
 (without the start tok64 header).
 
-CONTACT
+INFO
 --------
 
-The author, Peter Krefting, can be contacted
+The original author, Peter Krefting, can be contacted
 via Internet e-mail at peter@softwolves.pp.se. Information about this
 program is available at
 http://www.softwolves.pp.se/sw/
