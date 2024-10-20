@@ -6,6 +6,9 @@
 #include <stdio.h>
 #ifdef __EMX__
 # include <getopt.h>
+#elif _WIN32
+	#include <windows.h>
+	#include "wgetopt.h"
 #else
 # include <unistd.h>
 #endif
@@ -115,7 +118,7 @@ int main(int argc, char *argv[])
 			case 'h':
 			case '?':
 			case ':':
-				fprintf(stderr, "Usage: %s " SWITCH "i|" SWITCH "o|" SWITCH "h [modifiers] infile(s) outfile\n"
+				fprintf(stderr, "Usage: %s [modifiers] " SWITCH "h| "SWITCH "i|infile(s) " SWITCH "o|outfile " " infile(s) outfile\n"
 				                "\n Mode (one of these required):\n"
 				                "  " SWITCH "i\tInput mode (binary to text)\n"
 				                "  " SWITCH "o\tOutput mode (text to binary)\n"

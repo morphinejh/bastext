@@ -61,7 +61,7 @@ void txt2bas(const char *infile, basic_t force, int t64mode)
 
 			/* Create standard header */
 			memset(&header, 0, sizeof(header));
-			const char description[sizeof header.description] = "C64 tape image file " PROGNAME " " PROGVERSION "\x1a";
+			const char description[sizeof header.description] = "C64 tape image " PROGNAME " " PROGVERSION "\x1a";
 			memcpy(header.description, description, 32);
 			memcpy(header.title, "CREATED BY BASTEXT      ", 24);
 			header.version[0]  = 0x00;					/* low */
@@ -193,7 +193,7 @@ void txt2bas(const char *infile, basic_t force, int t64mode)
 				/* Make uppercase, convert _ to spaces, and fill with spaces.
 				 */
 				for (i = 0; i < sizeof(record.filename); i ++) {
-					if (i >= c_p - text || '_' == record.filename[i]) {
+					if (i >= (unsigned int)(c_p - text) || '_' == record.filename[i]) {
 						record.filename[i] = ' ';
 					}
 					else if (0x60 == (0x60 & text[i])) {

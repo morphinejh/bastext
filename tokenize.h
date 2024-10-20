@@ -1,5 +1,10 @@
 #pragma once
 
+#if _WIN32
+# define strncasecmp _strnicmp
+# define strcasecmp _stricmp
+#endif
+
 /* BASIC mode selected */
 typedef enum basic_e {
 	Any, Basic2, Graphics52, TFC3, Basic7, Basic71, Basic35, Basic4, VicSuper, X16

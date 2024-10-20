@@ -234,8 +234,8 @@ int tokenize(const char *input_p, char *output_p, int *length_p, basic_t mode)
 					    0 == strncasecmp(input_p, c128FEtokens[i], tokenlen)) {
 						/* token match found */
 						match = TRUE;
-						(*output_p ++) = 0xFE;		/* token escape */
-						(*output_p ++) = i;			/* write token */
+						(*output_p ++) = (char)0xFE;		/* token escape */
+						(*output_p ++) = (char)i;			/* write token */
 						input_p += tokenlen;		/* skip token */
 						inputleft -= tokenlen;
 					} /* if */
@@ -249,8 +249,8 @@ int tokenize(const char *input_p, char *output_p, int *length_p, basic_t mode)
 					    0 == strncasecmp(input_p, c128CEtokens[i], tokenlen)) {
 						/* token match found */
 						match = TRUE;
-						(*output_p ++) = 0xCE;		/* token escape */
-						(*output_p ++) = i;			/* write token */
+						(*output_p ++) = (char)0xCE;		/* token escape */
+						(*output_p ++) = (char)i;			/* write token */
 						input_p += tokenlen;		/* skip token */
 						inputleft -= tokenlen;
 					} /* if */
