@@ -102,8 +102,8 @@ big problems. If autodetection in this mode does not work, use one of the
 
 BasText is command line driven, with the following syntax:
 
-    bastext -i [-t] [-a] [-s] [-d filename] filename(s)
-    bastext -o [-t] [-2|-3|-5|-7|-1] filename(s)
+    bastext [-t] [-a] [-s] [-d filename] -i filename(s)
+    bastext [-t] [-2|-3|-5|-7|-1] -o  filename(s)
     bastext -h
 
 One of the three mode selectors must be given:
